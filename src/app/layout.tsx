@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Jost } from 'next/font/google'
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const jost = Jost({ weight: ["400", "500", "600", "700", "900"], subsets: ["latin"]});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,8 +15,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    // add font to className, also add antialiased and dark mode
+    <html lang="en" className={`${jost.className}`}>
+      <body>{children}</body>
     </html>
   );
 }

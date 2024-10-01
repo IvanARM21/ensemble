@@ -1,0 +1,162 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id @default(uuid())
+  name          String
+  email         String    @unique
+  phone         String?   @unique
+  emailVerified DateTime?
+  password      String?
+  image         String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  role          Role      @default(user)
+  accounts      Account[]
+
+  favorite Favorite[]
+}
+
+model Account {
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@id([provider, providerAccountId])
+}
+
+model VerificationToken {
+  identifier String   @id
+  token      String
+  expires    DateTime
+}
+
+enum Role {
+  user
+  admin
+}
+
+enum CategoryType {
+  clothing
+  accessories
+  shoes
+}
+
+enum Gender {
+  women
+  men
+  unisex
+}
+
+model Category {
+  id     String       @unique @default(uuid())
+  label  String
+  slug   String
+  type   CategoryType
+  gender Gender?
+  image  String?
+
+  products Product[]
+}
+
+model Product {
+  id          String @unique @default(uuid())
+  name        String
+  slug        String
+  price       Int
+  description String
+
+  gender    Gender
+  materials String[]
+  tags      String[]
+
+  category   Category @relation(fields: [categoryId], references: [id])
+  categoryId String
+
+  variants Variant[]
+}
+
+model Favorite {
+  id String @unique @default(uuid())
+
+  user      User    @relation(fields: [userId], references: [id])
+  userId    String
+  variant   Variant @relation(fields: [variantId], references: [id])
+  variantId String
+}
+
+model Variant {
+  id    String @unique @default(uuid())
+  name  String
+  slug  String
+  price Int
+
+  color   Color            @relation(fields: [colorId], references: [id])
+  colorId String
+  sizes   SizesOnVariant[]
+
+  product   Product @relation(fields: [productId], references: [id])
+  productId String
+
+  images   ImagesVariant[]
+  favorite Favorite[]
+}
+
+model ImagesVariant {
+  id        String  @unique @default(uuid())
+  url       String
+  variantId String
+  variant   Variant @relation(fields: [variantId], references: [id])
+}
+
+enum SizeType {
+  clothing
+  pants
+  shoes
+}
+
+model Size {
+  id    String   @unique @default(uuid())
+  label String
+  type  SizeType
+  order Int
+
+  variants SizesOnVariant[]
+}
+
+model SizesOnVariant {
+  variant   Variant @relation(fields: [variantId], references: [id])
+  variantId String
+
+  size   Size   @relation(fields: [sizeId], references: [id])
+  sizeId String
+
+  stock Int
+
+  @@id([sizeId, variantId])
+}
+
+model Color {
+  id    String @id @default(uuid())
+  label String
+  code  String
+
+  variants Variant[]
+}
