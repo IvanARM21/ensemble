@@ -2,11 +2,11 @@
 
 import { useEffect, useMemo, useState } from "react"
 import { ChevronDownIcon } from "@heroicons/react/20/solid"
-import { CreateVariant } from "@/interfaces"
+import {  SizeWithStock } from "@/interfaces"
 import clsx from "clsx";
 
 interface Props {
-    sizes: CreateVariant["sizes"];
+    sizes: SizeWithStock[];
 }
 
 export const ExpandablesSizes = ({sizes} : Props) => {

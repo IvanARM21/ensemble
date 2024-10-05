@@ -2,11 +2,11 @@
 
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
-import { ProductCart, Size,  } from '@/interfaces';
+import { ProductCart, SizeWithStock  } from '@/interfaces';
 import { toast } from 'react-toastify';
 import { calculateDiscount } from '@/utils';
 
-interface SizeClothing { };
+
 
 interface CartStore {
     cart: ProductCart[];
@@ -21,10 +21,10 @@ interface CartStore {
     getTotalPrice: () => number;
 
     addProduct: (product: ProductCart) => void;
-    removeProduct: (productId: string, variantId: string, size: SizeClothing) => void;
-    increaseQuantity: (productId: string, variantId: string, size: SizeClothing) => void
-    decreaseQuantity: (productId: string, variantId: string, size: SizeClothing) => void
-    changeQuantity: (productId: string, variantId: string, size: SizeClothing, quantity: number) => void
+    removeProduct: (productId: string, variantId: string, size: { id: string; label: string }) => void;
+    increaseQuantity: (productId: string, variantId: string, size: { id: string; label: string }) => void
+    decreaseQuantity: (productId: string, variantId: string, size: { id: string; label: string }) => void
+    changeQuantity: (productId: string, variantId: string, size: { id: string; label: string }, quantity: number) => void
 }
 
 const useCartStore = create<CartStore>()(
@@ -80,7 +80,7 @@ const useCartStore = create<CartStore>()(
                     cart: state.cart.filter(product => 
                         product.productId !== productId ||
                         product.variantId !== variantId ||
-                        product.size !== size
+                        product.size.label !== size.label
                     )
                 }));
                 toast.error("Product successfully disposed of");
@@ -90,7 +90,7 @@ const useCartStore = create<CartStore>()(
                 cart: state.cart.map(product => 
                     product.productId === productId &&
                     product.variantId === variantId &&
-                    product.size === size 
+                    product.size.label === size.label
                     ? { ...product, quantity: product.quantity + 1 } : product)
             })),
 
@@ -98,7 +98,7 @@ const useCartStore = create<CartStore>()(
                 cart: state.cart.map(product => 
                     product.productId === productId &&
                     product.variantId === variantId &&
-                    product.size === size 
+                    product.size.label === size.label
                     ? { ...product, quantity: product.quantity - 1 } : product)
             })),
 
@@ -106,7 +106,7 @@ const useCartStore = create<CartStore>()(
                 cart: state.cart.map(product => 
                     product.productId === productId &&
                     product.variantId === variantId &&
-                    product.size === size 
+                    product.size.label === size.label
                     ? { ...product, quantity } : product)
             }))
         }),

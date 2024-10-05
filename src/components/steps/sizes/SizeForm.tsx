@@ -1,12 +1,11 @@
 "use client";
 
+import React from "react";
 import { useSizeStore } from "@/store";
 import { Select, SelectItem, SelectTrigger, SelectValue, SelectContent, Alert, ImageSource } from "@/components";
 import { SizeType } from "@/interfaces";
 import { StepHeader } from "../StepHeader";
 import { types } from "@/constants";
-
-const data = ["Clothing", "Pants", "Shoes"]
 
 
 export const SizeForm = () => {

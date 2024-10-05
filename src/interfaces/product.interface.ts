@@ -1,12 +1,12 @@
-import { Color, Size, Category } from "@/interfaces";
+import { Category } from "@/interfaces";
 import { Variant } from "./variant.interface";
 
 type Gender = "women" | "men" | "unisex";
 
-type SizeWithStock = {
-    size: Size;
-    stock: number
-}
+// type SizeWithStock = {
+//     size: Size;
+//     stock: number
+// }
 
 export type Product = {
     id?: string;
@@ -61,8 +61,8 @@ export type ProductCart = {
     color: string;
     image: string;
     size: {
-        id: Size["id"]
-        label: Size["label"]
+        id: string
+        label: string
     };
     quantity: number;
     stock: number;

@@ -3,7 +3,7 @@ import prisma from "./lib/prisma";
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import authConfig from "@/auth.config";
 import { Role } from "./interfaces";
-import { JWT } from "next-auth/jwt";
+import "next-auth/jwt";
 
 // Extender las interfaces de `next-auth` para incluir los campos adicionales
 declare module "next-auth" {

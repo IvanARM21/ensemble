@@ -3,7 +3,7 @@ import prisma from "@/lib/prisma";
 
 export const getCategoryWithProducts = async (gender: Gender, slug: string) => {
     try {
-        // if(!gender || !slug) throw new Error("");
+        if(!gender || !slug) throw new Error("");
         const categoryWithProducts = await prisma.category.findFirst({
             where: {  gender: gender, slug: slug },
             include: {

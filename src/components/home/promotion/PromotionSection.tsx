@@ -28,8 +28,8 @@ export const PromotionSection = () => {
           alt="Discount Background"
           width={1000}
           height={1000}
-          sizes="100vw"
-          quality={100}
+          sizes="(min-width: 1536px) 1400px, 80vw"
+          quality={70}
         />
     </div>
   )

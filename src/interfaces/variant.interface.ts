@@ -1,4 +1,4 @@
-import { Size, SizeType } from "./sizes.interface";
+import { SizeType } from "./sizes.interface";
 
 export interface CreateVariant {
     name: string;
@@ -6,12 +6,7 @@ export interface CreateVariant {
     slug: string;
     price: number;
     colorId: string;
-    sizes: {
-        size: {
-            id: string;
-        };
-        stock: number;
-    }[],
+    sizes: SizeWithStock[],
     images: File[];
 }
 
@@ -42,7 +37,7 @@ export type SizeWithStock = {
         type: SizeType;
         order: number;
     };
-    sizeId: string;
+    sizeId?: string;
     stock: number;
-    variantId: string;
+    variantId?: string;
 }

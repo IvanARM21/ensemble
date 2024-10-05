@@ -18,11 +18,11 @@ export const CategorySlideItem = ({ category } : Props) => {
     >
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-black/30" />
         <ImageSource 
-          src={category.image ?? ""} 
+          src={category.image as string} 
           alt={`Image of category ${category.label}`}
           className="w-full h-full object-cover"
-          sizes="(min-width: 1024px) 600px, 350px"
-          quality={90}
+          sizes="(min-width: 380px) 40vw, (min-width: 768px) 30vw, (min-width: 1024px) 20vw, (min-width: 1536px) 400px, 60vw"
+          quality={75}
           width={400}
           height={600}
         />

@@ -1,7 +1,7 @@
 "use client";
 
-import { Bars } from '@/icons';
-import { useUiStore } from '@/store/client/ui-store';
+import { useUiStore } from '@/store';
+import { Bars3BottomRightIcon } from '@heroicons/react/24/outline';
 import { ShoppingButton } from '../header/ShoppingButton';
 
 export const MenuButton = () => {
@@ -14,10 +14,9 @@ export const MenuButton = () => {
       <button 
         type="button"
         aria-label="Menu Button"
-        className=" h-10 w-10 text-gray-500"
         onClick={showMenu}
       >
-        <Bars  />
+        <Bars3BottomRightIcon className="size-8 text-gray-700" />
       </button>
     </div>
   )

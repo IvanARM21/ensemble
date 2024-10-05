@@ -1,13 +1,12 @@
 "use client";
+import React from "react";
 import Link from "next/link"
 import clsx from "clsx";
+import { ChevronRightIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useUiStore } from "@/store/client/ui-store";
-import { ChevronRight, XMark } from "@/icons";
 import { AuthButtonsMobile } from "./AuthButtonsMobile";
 import { Session } from "next-auth";
-import { MenuCategories } from "../menu/MenuCategories";
 import { useMenuStore } from "@/store";
-import { useEffect } from "react";
 
 interface Props {
     session: Session | null
@@ -55,8 +54,7 @@ export const MenuMobile = ({session}: Props) => {
                         type="button"
                         onClick={closeMenu}
                         aria-label="Close Menu Mobile"
-                        className="size-10 text-gray-900"
-                    ><XMark /></button>
+                    ><XMarkIcon className="size-8 text-gray-700" /></button>
                 </div>
 
                 <div className="h-[1px] w-full bg-gray-200 mt-20" />
@@ -68,7 +66,7 @@ export const MenuMobile = ({session}: Props) => {
                         className="flex gap-1 items-center justify-between py-3 hover:bg-gray-100 transition-colors duration-300 rounded-xl px-3 text-gray-500 hover:text-black"
                     >
                         Women 
-                        <ChevronRight />
+                        <ChevronRightIcon className="size-5" />
                     </button>
                     <button 
                         type="button"
@@ -76,7 +74,7 @@ export const MenuMobile = ({session}: Props) => {
                         className="flex gap-1 items-center justify-between py-3 hover:bg-gray-100 transition-colors duration-300 rounded-xl px-3 text-gray-500 hover:text-black"
                     >
                         Men 
-                        <ChevronRight />
+                        <ChevronRightIcon className="size-5" />
                     </button>
                     <Link
                         href={"/about-us"}

@@ -5,7 +5,7 @@ import { ConfirmAccount, ForgotPasswordMail } from "@/interfaces";
 const resend = new Resend(process.env.AUTH_RESEND_KEY);
 
 export const sendEmailVerification = async (mail: ConfirmAccount) => {
-    const { email, token, name } = mail;
+    const {  token, name } = mail;
     try {
         await resend.emails.send({
             from: "Ensemble-Shop <onboarding@resend.dev>",
@@ -18,14 +18,17 @@ export const sendEmailVerification = async (mail: ConfirmAccount) => {
             `
         });
 
-        return { error: false }
+        return { error: false };
     } catch (error) {
+        if(error instanceof Error) {
+            return { error: error.message }
+        }
         return { error: true }
     }
 }
 
 export const sendEmailForNewPassword = async (mail: ForgotPasswordMail) => {
-    const { email, token, name } = mail;
+    const { token, name } = mail;
     try {
         await resend.emails.send({
             from: "Ensemble-Shop <onboarding@resend.dev>",
@@ -40,6 +43,9 @@ export const sendEmailForNewPassword = async (mail: ForgotPasswordMail) => {
 
         return { error: false };
     } catch (error) {
+        if(error instanceof Error) {
+            return { error: error.message }
+        }
         return { error: true }
     }
 }

@@ -1,7 +1,8 @@
-import { ChevronLeft } from "@/icons";
-import { Brand, Category, Gender } from "@/interfaces";
+import React from "react";
+import { Category, Gender } from "@/interfaces";
 import { Categories } from "./Categories";
 import { Highlight } from "./Highlight";
+import { ChevronLeftIcon } from "@heroicons/react/24/outline";
 
 interface Props {
     clothings: Category[];
@@ -24,7 +25,7 @@ export const MenuGender = ({clothings, accesories, shoes, closeMenu, gender, ima
             onClick={closeMenu}
             className="lg:hidden flex gap-1 items-center mt-3 w-full py-3 hover:bg-gray-100 transition-colors duration-300 rounded-xl text-gray-500 px-2 hover:text-black"
         >   
-            <ChevronLeft />
+            <ChevronLeftIcon className="size-5" />
             Back 
         </button>
         <div className="grid min-[480px]:grid-cols-2 lg:grid-cols-5 gap-x-4 gap-y-10 lg:gap-8 max-w-screen-2xl lg:mx-auto w-full py-4 lg:py-10 px-2">

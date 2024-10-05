@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { deleteColor, deleteProduct, getAllProductAndNumVar } from "@/actions";
+import { deleteProduct, getAllProductAndNumVar } from "@/actions";
 import { 
   DashboardPageHeader, 
   TableRoot,

@@ -7,7 +7,7 @@ import { deleteImages } from "../images/images-action";
 
 export const deleteProduct = async (productId: Product["id"]) => {
     try {
-        // Get product
+        // Get product with variants and related data
         const product = await prisma.product.findFirst({
             where: { id: productId },
             include: {
@@ -17,53 +17,53 @@ export const deleteProduct = async (productId: Product["id"]) => {
             }
         });
 
-        if(!product) throw new Error("An error ocurred, try again.");
+        if (!product) throw new Error("An error occurred, try again.");
 
-        if(product.variants.length) {
+        // Check if there are variants to delete
+        if (product.variants.length) {
+            // First, delete related data for each variant
             await Promise.all(
-                product?.variants.map(async variant => {
-                    // Delete sizez of each variant
+                product.variants.map(async variant => {
+                    // Delete sizes of each variant
                     await prisma.sizesOnVariant.deleteMany({
                         where: { variantId: variant.id }
                     });
-                    // Delete images of cloudinary
+
+                    // Delete images from Cloudinary
                     await Promise.all(
                         variant.images.map(async image => {
                             await deleteImages(image.url);
                         })
                     );
-                    // Delete images of database
+
+                    // Delete images from database
                     await prisma.imagesVariant.deleteMany({
                         where: { variantId: variant.id }
                     });
+
                     // Delete favorites
                     await prisma.favorite.deleteMany({
                         where: { variantId: variant.id }
                     });
-                }),
-            );
 
-            // Delete Images of Cloudinary
-
-            // Delete Variant
-            await Promise.all(
-                product?.variants.map(async variant => {
-                    prisma.variant.delete({
+                    // Delete the variant itself
+                    await prisma.variant.delete({
                         where: { id: variant.id }
                     });
-                })
+                }),
             );
         }
-        // Delete Product
+
+        // Finally, delete the product
         await prisma.product.delete({
             where: { id: productId }
         });
 
         revalidatePath("/dashboard/products");
 
-        return { error: false, message: "The Product has been removed and its variant." };
+        return { error: false, message: "The Product has been removed and its variants." };
     } catch (error) {
-        if(error instanceof Error) {
+        if (error instanceof Error) {
             return { error: true, message: error.message };
         }
         return { error: true, message: "An unexpected error occurred, try again later." };

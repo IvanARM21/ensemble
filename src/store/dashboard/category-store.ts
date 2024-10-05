@@ -11,8 +11,12 @@ const INITIAL_STEPS: Step<CategoryContext>[] = [
             alert: INITIAL_ALERT
         },
         condition: ({category}) => {
-            const { id, image, ...rest } = category;
-            if(!Object.values(rest).includes("")) {
+            const required = {
+                label: category.label,
+                slug: category.slug,
+                type: category.type
+            }
+            if(!Object.values(required).includes("")) {
                 return true;
             }
             return false;
@@ -25,7 +29,7 @@ const INITIAL_STEPS: Step<CategoryContext>[] = [
             category: INITIAL_CATEGORY,
             alert: INITIAL_ALERT
         },
-        condition: ({}) => true
+        condition: () => true
     },
     {
         numStep: 3,
@@ -34,7 +38,7 @@ const INITIAL_STEPS: Step<CategoryContext>[] = [
             category: INITIAL_CATEGORY,
             alert: INITIAL_ALERT
         },
-        condition: ({}) => true,
+        condition: () => true,
     }
 ]
 

@@ -10,7 +10,7 @@ interface Props {
   alt: string;
   src: string | null;
   className?: string;
-  onClick: () => void;
+  onClick: (e?: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 }
 
 export const ImageClick = ({width, height, quality = 70, sizes, alt, src, className = "", onClick} : Props) => {

@@ -1,8 +1,8 @@
 "use client";
 
-import { ShoppingBag } from "@/icons"
 import { useCartStore } from '@/store';
-import { useEffect, useState } from "react";
+import { ShoppingBagIcon } from '@heroicons/react/24/outline';
+import React, { useEffect, useState } from "react";
 
 export const ShoppingButton = () => {
 
@@ -22,12 +22,10 @@ export const ShoppingButton = () => {
     <button
         type="button"
         aria-label="Cart Shop"
-        className=" text-gray-500 flex gap-1"
+        className="flex text-gray-500"
         onClick={showCart}
     >   
-        <div className="size-7">
-            <ShoppingBag />
-        </div>
+        <ShoppingBagIcon className="size-7 " />
         <p className="text-sm">{quantityProducts}</p>
     </button>
   )

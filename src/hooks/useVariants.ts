@@ -2,9 +2,9 @@
 
 import React, { useEffect, useMemo, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
-import { INITIAL_ALERT, INITIAL_VARIANT } from "@/constants";
+import { INITIAL_ALERT } from "@/constants";
 import { CreateVariant, Size } from "@/interfaces";
-import { createVariant, getColors, getSizes, getSizesByType } from "@/actions";
+import { createVariant, getColors, getSizes } from "@/actions";
 import { createSlug, formattedSizes } from "@/utils";
 import { useVariantStore } from "@/store";
 
@@ -86,7 +86,7 @@ export const useVariants = ({product} : Props) => {
             const onlySizes = sizesVariant.map(size => size.size);
             const sizesUpdated = formattedSizes([...onlySizes, size]).map(size => ({ size: size, stock: 0 }));
             
-            setVariant({ ...variant, sizes: sizesUpdated });
+            setVariant({ ...variant, sizes: sizesUpdated});
         }
     }
 

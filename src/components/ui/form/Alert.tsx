@@ -1,5 +1,5 @@
-
-import { ExclamationCircle, CheckCircle } from '@/icons';
+import React from 'react';
+import { CheckCircleIcon, ExclamationCircleIcon } from '@heroicons/react/24/outline';
 
 interface Props {
     message: string;
@@ -11,12 +11,12 @@ export const Alert = ({message, error = true} : Props) => {
     <>
         {error ? (
             <div className="text-red-600 text-sm flex gap-1 items-center">
-                <ExclamationCircle />
+                <ExclamationCircleIcon />
                 {message}
             </div>
         ) : (
             <div className="text-blue-600 text-sm flex gap-1 items-center">
-                <CheckCircle />
+                <CheckCircleIcon />
                 {message}
             </div>
         )}

@@ -1,7 +1,8 @@
+import React from "react";
 import { useCartStore } from "@/store";
 import {  handleChangeQuantity, handleClickDecrease, handleClickIncrease } from '@/utils'
-import { MinusIcon, PlusIcon, Trash } from '@/icons'
 import { ProductCart } from "@/interfaces";
+import { MinusIcon, PlusIcon, TrashIcon } from "@heroicons/react/24/outline";
 
 interface Props {
     item: ProductCart
@@ -41,7 +42,7 @@ export const CartActions = ({item} : Props) => {
             className="size-4 sm:size-7 text-gray-500 hover:text-red-600 transition-colors duration-300"
             onClick={() => removeProduct(item.productId, item.variantId, item.size)}
         >
-            <Trash />
+            <TrashIcon />
         </button>
     </>
   )

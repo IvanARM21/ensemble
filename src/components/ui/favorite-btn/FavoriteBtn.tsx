@@ -1,7 +1,8 @@
 "use client";
 
+import { HeartIcon as HeartIconSolid } from "@heroicons/react/24/solid";
+import { HeartIcon as HeartIconOutline } from "@heroicons/react/24/outline";
 import { useState } from "react";
-import { HeartIconOutline, HeartIconSolid } from "@/icons";
 
 interface Props {
     className?: string;
@@ -9,7 +10,6 @@ interface Props {
 
 export const FavoriteBtn = ({className} : Props) => {
   const [isHeartHovered, setIsHeartHovered] = useState(false);
-  const [isFavorite, setIsFavorite] = useState(false);
   return (
     <button
         type="button"

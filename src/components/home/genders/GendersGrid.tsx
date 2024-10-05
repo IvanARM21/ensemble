@@ -1,5 +1,3 @@
-import Image from 'next/image'
-import Link from 'next/link'
 import { GenderItem } from './GenderItem'
 
 export const GendersGrid = () => {
@@ -8,17 +6,17 @@ export const GendersGrid = () => {
         <div className="grid sm:grid-cols-3 gap-2 mt-10">
           <GenderItem 
             url="/collections/women"
-            image="/women-beautiful.jpg"
+            image="/women-collection.jpg"
             label="Women's"
           />
           <GenderItem 
             url="/collections/men"
-            image="/men-beautiful.jpg"
+            image="/men-collection.jpg"
             label="Men's"
           />
           <GenderItem 
             url="/collections/accessories"
-            image="/accesories-section.jpg"
+            image="/accessories-collection.jpg"
             label="Accessories"
           />
         </div>

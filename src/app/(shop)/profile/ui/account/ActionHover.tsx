@@ -1,16 +1,16 @@
 "use client";
 
 import { Field, useModalStore } from "@/store";
+import { PencilIcon, PlusIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 
 interface Props {
-    icon: () => React.JSX.Element
     label: "edit" | "add" | "default";
     field: Field
     className: string;
 }
 
-export const ActionHover = ({icon, label, field, className} : Props) => {
+export const ActionHover = ({ label, field, className} : Props) => {
 
   const [isHovered, setIsHovered] = useState(false);
   const showModalProfile = useModalStore(state => state.showModalProfile);
@@ -32,7 +32,12 @@ export const ActionHover = ({icon, label, field, className} : Props) => {
                 onMouseLeave={() => setIsHovered(false)}
                 onClick={() => showModalProfile(label, field)}
             >
-                {icon()}
+                {label === "add" && (
+                    <PlusIcon />
+                )}
+                {label === "edit" && (
+                    <PencilIcon />
+                )}
             </button>
         </div>
     </div>

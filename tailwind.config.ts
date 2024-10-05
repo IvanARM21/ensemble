@@ -6,7 +6,8 @@ const config: Config = {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   plugins: [
-	require("tailwindcss-animate")],
+	// tailwindcss-animate, npm i tailwindcss-animate
+  ],
     theme: {
     	extend: {
     		borderRadius: {

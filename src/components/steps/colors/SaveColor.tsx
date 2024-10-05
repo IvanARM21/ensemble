@@ -1,3 +1,5 @@
+
+import React from "react";
 import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react";
 import { useColorStore } from "@/store";
@@ -50,7 +52,6 @@ export const SaveColor = ({type} : Props) => {
 
   return (
     <>
-        
         <StepHeader title="Save color" description="Here we save the sizes you have created."/>
 
         <div className="pt-6 flex flex-col gap-4 ">

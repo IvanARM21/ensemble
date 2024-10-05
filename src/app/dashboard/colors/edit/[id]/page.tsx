@@ -1,6 +1,5 @@
 import { getColorById } from "@/actions";
 import { ColorsProcess, DashboardPageHeader } from "@/components";
-import Link from "next/link";
 import { redirect } from "next/navigation";
 
 interface Props {

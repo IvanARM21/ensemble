@@ -1,8 +1,8 @@
 "use client";
 
-import { AddIcon, PencilIcon } from '@/icons';
-import { ActionHover } from './ActionHover';
+import { PencilIcon, PlusIcon } from '@heroicons/react/24/outline';
 import { Field } from '@/store';
+import { ActionHover } from './ActionHover';
 
 interface Props {
     field: Field;
@@ -23,7 +23,6 @@ export const AccountItem = ({field, label, value, className, isEditable = true} 
 
         {iconName === "add" && (
           <ActionHover 
-            icon={AddIcon}
             label="add"
             field={field}
             className="text-teal-400 hover:text-teal-500"
@@ -31,7 +30,6 @@ export const AccountItem = ({field, label, value, className, isEditable = true} 
         )}
         {iconName === "edit" && (
           <ActionHover 
-            icon={PencilIcon}
             label="edit"
             field={field}
             className="text-blue-500 hover:text-blue-600"

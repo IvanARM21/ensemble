@@ -1,7 +1,7 @@
 import Image from 'next/image';
-import { ArchiveBox, BookMark, LockClosed, UserIcon } from '@/icons';
 import { User } from '@/interfaces';
 import Link from 'next/link';
+import { ArchiveBoxIcon, BookmarkIcon, LockClosedIcon, UserIcon } from '@heroicons/react/24/outline';
 
 interface Props {
     user: Omit<User, 'password'>
@@ -36,21 +36,21 @@ export const ProfileSidebar = ({user, show} : Props) => {
                 href={"/profile?show=security"}
                 className={`flex items-center gap-2 px-4 py-3 hover:bg-gray-50 text-gray-600 rounded-xl transition-colors duration-300 cursor-pointer ${show === "security" && "bg-gray-50"}`}
             >
-              <LockClosed />
+              <LockClosedIcon />
               Security
             </Link>
             <Link 
                 href={"/profile?show=favorites"}
                 className={`flex items-center gap-2 px-4 py-3 hover:bg-gray-50 text-gray-600 rounded-xl transition-colors duration-300 cursor-pointer ${show === "favorites" && "bg-gray-50"}`}
             >
-              <BookMark />
+              <BookmarkIcon />
               Favorites
             </Link>
             <Link 
                 href={"/profile?show=orders"}
                 className={`flex items-center gap-2 px-4 py-3 hover:bg-gray-50 text-gray-600 rounded-xl transition-colors duration-300 cursor-pointer ${show === "orders" && "bg-gray-50"}`}
             >
-              <ArchiveBox />
+              <ArchiveBoxIcon />
               Orders
             </Link>
           </nav>

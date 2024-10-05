@@ -1,8 +1,9 @@
 "use client";
 
+import React from "react";
 import { useMenuStore } from "@/store"
 import { formattCategories } from '@/utils';
-import { Brand, Category } from "@/interfaces";
+import { Category } from "@/interfaces";
 import { MenuCategories } from "./MenuCategories"
 import { MenuGender } from "./MenuGender";
 

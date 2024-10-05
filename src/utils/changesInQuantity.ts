@@ -1,8 +1,15 @@
-import { ProductCart, SizeClothing } from "@/interfaces";
+import { ProductCart, Size, } from "@/interfaces";
+import { SizeType } from "@prisma/client";
 
 interface Args {
-    callback: (productId : string, variantId : string, size: SizeClothing) => void;
-    callbackTwo: (productId : string, variantId : string, size: SizeClothing, newQuantity : number) => void;
+    callback: (productId : string, variantId : string, size: {
+        id: string;
+        label: string;
+    }) => void;
+    callbackTwo: (productId : string, variantId : string, size: {
+        id: string;
+        label: string;
+    }, newQuantity : number) => void;
 }
 
 export const handleClickIncrease = (item : ProductCart, callback : Args["callback"]) => {

@@ -1,4 +1,4 @@
-import { Category, Gender } from "@/interfaces";
+import { Category, CategoryType, Gender } from "@/interfaces";
 
 interface Result {
     [key: string]: Category[];
@@ -12,8 +12,8 @@ interface GenderFormatted {
 
 export const formattCategories = (categories : Category[] = []) => {
     const categoriesFormatted = categories.reduce((acc : Result, prev) => {
-        acc[prev.type] = acc[prev.type] || [];
-        acc[prev.type].push(prev);
+        acc[prev.type as CategoryType] = acc[prev.type as CategoryType] || [];
+        acc[prev.type as CategoryType].push(prev);
         return acc;
     }, {} as Result);
 
@@ -55,8 +55,6 @@ export const formattCategoriesForGender = (categories: Category[], gender: Gende
             return unisex;
     }
 }
-
-
 
 const formattGender = (clothing : Category[]) => {
     if(!clothing) return { men: [], women: [] };

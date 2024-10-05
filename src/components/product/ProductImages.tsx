@@ -1,8 +1,7 @@
 "use client";
 
-import { Fragment, useState } from "react";
+import React, { Fragment, useState } from "react";
 import { Variant } from "@/interfaces";
-import { ImageSource } from "../ui/image/ImageSource";
 import { ImageModal } from "./ImageModal";
 import { ImageClick } from "../ui/image/ImageClick";
 
@@ -20,10 +19,10 @@ export const ProductImages = ({  variantUi }: Props) => {
       <div className="lg:col-span-7">
         <ImageClick 
           src={variantUi.images[0].url}
-          width={900}
-          height={900}
-          quality={100}
-          sizes="(min-width: 1024px) 66.6vw (min-width: 1520px) 1000px, 100vw"
+          width={1000}
+          height={1000}
+          quality={85}
+          sizes="(min-width: 1024px) 50vw (min-width: 1520px) 870px, 100vw"
           alt={`Image of variant ${variantUi.name} num 1`}
           className="rounded-lg w-full shadow-md"
           onClick={() => {
@@ -41,8 +40,8 @@ export const ProductImages = ({  variantUi }: Props) => {
                   width={500}
                   height={500}
                   alt={`Image of variant ${variantUi.name} num ${i}`}
-                  sizes="100vw"
-                  quality={80}
+                  sizes="(min-width: 1024px) 25vw (min-width: 1520px) 425px, 50vw"
+                  quality={70}
                   className="rounded-lg w-full shadow-md"
                   onClick={() => {
                     setModal(true);

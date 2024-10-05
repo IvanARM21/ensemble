@@ -22,7 +22,7 @@ export const NameForm = ({title, defaultValues, user, setUser} : Props) => {
   });
   const hiddenModalProfile = useModalStore(state => state.hiddenModalProfile)
   const [alert, setAlert] = useState(INITIAL_ALERT);
-  const [isPending, transitionStart] = useTransition();
+  const [, transitionStart] = useTransition();
 
   const onSubmit = async (data: ChangeName) => {
     transitionStart(async () => {

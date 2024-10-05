@@ -1,6 +1,7 @@
 "use client";
-import { Fragment } from 'react';
-import { usePathname, useRouter } from 'next/navigation';
+
+import React, { Fragment } from 'react';
+import { useRouter } from 'next/navigation';
 import { Product, Variant } from '@/interfaces';
 import { ProductVariantsColor } from '../products/ProductVariantsColor';
 
@@ -13,7 +14,6 @@ interface Props {
 export const ColorSelect = ({product, firstVariant, variant} : Props) => {
 
   const router = useRouter();
-  const pathname = usePathname();
 
   const changeVariant = (variant : Variant) => {
     router.replace(`${variant.slug}`, {

@@ -7,7 +7,7 @@ import { useDashboardStore } from "@/store"
 
 export const DashboardSidebar = () => {
 
-  const { closeMenu, isActive, showMenu } = useDashboardStore();
+  const { isActive  } = useDashboardStore();
   return (
     <aside className={clsx("border-r h-screen w-72 fixed", {
       " translate-x-0 xl:translate-x-0": isActive,

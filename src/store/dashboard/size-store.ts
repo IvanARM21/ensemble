@@ -96,7 +96,7 @@ const useSizeStore = create<SizeStore>((set) => ({
         size: { ...state.size, type: value }
     })),
 
-    setStep: (step: Step<SizeContext>) => set((state) => ({ currentStep: step })),
+    setStep: (step: Step<SizeContext>) => set({ currentStep: step }),
 }));
 
 export { useSizeStore };

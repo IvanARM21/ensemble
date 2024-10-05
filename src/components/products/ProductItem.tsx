@@ -1,12 +1,11 @@
 "use client";
 
-import Image from 'next/image'
 import Link from 'next/link';
 import { Fragment, useMemo, useState } from 'react'
 
 import { Product, Variant } from '@/interfaces'
-import { calculateDiscount, currencyFormat } from '@/utils';
-import { FavoriteBtn, ImageChange, ImageSource } from '@/components';
+import {  currencyFormat } from '@/utils';
+import { FavoriteBtn, ImageChange} from '@/components';
 import { ProductVariantsColor } from './ProductVariantsColor';
 
 import 'animate.css/animate.min.css';
@@ -20,8 +19,6 @@ export const ProductItem = ({product, variant} : Props) => {
 
   const [variantUi, setVariantUi] = useState(variant);
   const [image, setImage] = useState(variantUi.images[0].url);
-
-  console.log(variantUi);
 
   const changeVariant = (variant : Variant) => {
     setVariantUi(variant);
@@ -40,10 +37,11 @@ export const ProductItem = ({product, variant} : Props) => {
                 <ImageChange 
                     src={image}
                     alt={variant.name}
-                    width={800}
-                    height={800}
-                    quality={100}
-                    className="w-full rounded-xl object-cover cursor-pointer shadow aspect-square mb-2 object-top"
+                    width={350}
+                    height={350}
+                    quality={70}
+                    sizes="(min-width: 768px) 30vw, (min-width: 1024px) 25vw, (min-width: 1536px) 350px, 50vw"
+                    className="w-full rounded-xl object-cover cursor-pointer shadow b mb-2 object-top aspect-[3/4]"
                     onMouseEnter={() => setImage(variantUi.images[1].url)}
                     onMouseLeave={() => setImage(variantUi.images[0].url)}
                 />
@@ -55,14 +53,8 @@ export const ProductItem = ({product, variant} : Props) => {
         </div>
         <div className="flex flex-col gap-2">
             <h2 className="text-xl font-medium hover:text-blue-600 transition-colors duration-300 cursor-pointer leading-4 text-gray-700">{product.name}</h2>
-                {/* {discount > 0 ? (
-                    <div className="flex flex-wrap-reverse items-center gap-x-2">
-                        {/* <p className="text-lg  text-gray-500">{currencyFormat(price-calculateDiscount(price, discount))}</p> */}
-                        {/* <p className="text-lg   text-gray-500 line-through decoration-2">{currencyFormat(price)}</p>
-                    </div> */}
-                {/* ) : ( */} 
+              
                     <p className="text-lg text-gray-500">{currencyFormat(price)}</p>
-                {/* )} */}
 
             <div className="flex flex-wrap items-center gap-2 ml-1">
                 <ProductVariantsColor 

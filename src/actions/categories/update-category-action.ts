@@ -1,12 +1,11 @@
 "use server";
 
 import prisma from "@/lib/prisma";
-import { Category, Gender } from "@/interfaces";
+import { Gender } from "@/interfaces";
 import { getPublicIdCloudinary } from "@/utils";
-import { deleteImages, uploadImages } from "@/actions";
+import { deleteImages, compressedImage, uploadAndGetUrl } from '@/actions';
 import { revalidatePath } from "next/cache";
 import { CategoryType } from "@prisma/client";
-import { compressedImage, uploadAndGetUrl } from '../images/images-action';
 
 export const updateCategory = async (formData : FormData) => {
     const category = {
@@ -45,8 +44,8 @@ export const updateCategory = async (formData : FormData) => {
                 const [ urlFile ] = await Promise.all([uploadAndGetUrl(compressedBuffer), deleteImages(imagePublicId)]);
                 image = urlFile;
             } else {
-                const { images } = await uploadImages(compressedBuffer);
-                image = images[0];
+                const imageSaved = await uploadAndGetUrl(compressedBuffer);
+                image = imageSaved;
             }
         }
 

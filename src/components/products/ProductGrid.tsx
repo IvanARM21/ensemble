@@ -1,6 +1,7 @@
-"use client";
-import Link from "next/link";
+"use client"
+import React from "react";
 import { Fragment } from "react";
+import Link from "next/link";
 import { ProductItem } from "./ProductItem";
 import { Product } from "@/interfaces";
 
@@ -10,18 +11,18 @@ interface Props {
 }
 
 export const ProductGrid = ({isIndex = false, products = []} : Props) => {
-    console.log(products[0]);
-  return (
+
+    return (
     <>
         {products.length ? (
             <div
-                className={`grid grid-cols-2 lg:grid-cols-3 gap-x-2 gap-y-6 md:gap-10`}
+                className={`grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-2 gap-y-6 md:gap-10`}
             >
                 {products.map(product => (
                     <Fragment key={product.id}>
                         {product.variants.map(variant => (
                             <ProductItem 
-                                key={`${product.id}-${variant.id}`}
+                                key={variant.id}
                                 product={product}
                                 variant={variant}
                             />
@@ -31,7 +32,7 @@ export const ProductGrid = ({isIndex = false, products = []} : Props) => {
             </div>
         ) : (
             <p className="text-xl text-gray-500">
-                We haven't products at the moment
+                We haven&apos;t products at the moment
 
             </p>
         )}

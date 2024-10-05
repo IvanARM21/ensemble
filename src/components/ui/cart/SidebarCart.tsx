@@ -1,12 +1,12 @@
 "use client";
 
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useCartStore } from "@/store";
 import { CartItem } from "./CartItem";
 import { currencyFormat } from "@/utils";
-import { XMark } from "@/icons";
 import clsx from "clsx";
-import { useEffect, useState } from "react";
+import { XMarkIcon } from "@heroicons/react/24/outline";
 
 export const SidebarCart = () => {
 
@@ -40,7 +40,7 @@ export const SidebarCart = () => {
                         className="size-10 text-gray-900"
                         aria-label="Close Cart"
                         onClick={hiddenCart}
-                    ><XMark /></button>
+                    ><XMarkIcon /></button>
                 </div>
                 {cart.length ? (
                     <>
@@ -77,7 +77,7 @@ export const SidebarCart = () => {
                         <div className="flex-1 flex justify-center items-center flex-col gap-3">
                             <p className="text-gray-500">Your cart is empty</p>
                             <Link
-                                href={"/shop"}
+                                href={"/collections"}
                                 onClick={hiddenCart}
                                 className="text-gray-700"
                             >Start shopping</Link>

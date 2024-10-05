@@ -1,7 +1,7 @@
 "use client";
 
 import { ChartBarSquareIcon, ClipboardDocumentCheckIcon, ShoppingBagIcon, UserPlusIcon } from "@heroicons/react/24/outline";
-import { OrdersChart, SalesChart, OrdersTable, CardDescription, CardHeader, CardTitle, DateRangePicker, OverviewCard } from "@/components";
+import { OrdersChart, SalesChart, OrdersTable, CardDescription, CardHeader, CardTitle, OverviewCard } from "@/components";
 
 export default function DashboardPage() {
 
@@ -10,17 +10,12 @@ export default function DashboardPage() {
   yesterday.setDate(today.getDate()-1);
 
   return (
-   <>
       <div className="grid grid-cols-12 gap-4">
         
         <div className="col-span-12 rounded-xl">
           <CardHeader className="col-span-2  rounded-xl">
             <CardTitle className="text-3xl font-medium text-gray-800">Today&rsquo;s Overview</CardTitle>
             <CardDescription>Monitor your key metrics and compare today with yesterday.</CardDescription>
-            <DateRangePicker className="w-fit bg-gray-50 border-none" defaultValue={{
-              from: yesterday,
-              to: today
-            }}/>
           </CardHeader>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 mt-5 gap-4">
@@ -75,6 +70,5 @@ export default function DashboardPage() {
           <OrdersChart />
         </div>
       </div>
-   </>
   );
 }

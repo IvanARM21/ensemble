@@ -1,4 +1,5 @@
 
+import React from "react";
 import { getCategoriesWithImage } from "@/actions";
 import { ReviewGrid, GendersGrid, CategoriesSlide, IncentiveGrid, PromotionSection } from "@/components";
 import { formattCategoriesByGender } from "@/utils";
@@ -31,7 +32,7 @@ export default async function PageHome() {
 
       {clothing.length && (
         <section className="mb-20">
-          <h2 className="text-gray-700 text-2xl sm:text-3xl font-medium border-b pb-8">Discover our collection for Women's</h2>
+          <h2 className="text-gray-700 text-2xl sm:text-3xl font-medium border-b pb-8">Discover our collection for Women&apos;s</h2>
 
           <CategoriesSlide categories={women} />
         </section>
@@ -39,7 +40,7 @@ export default async function PageHome() {
 
        {clothing.length && (
         <section className="mb-20">
-          <h2 className="text-gray-700 text-2xl sm:text-3xl font-medium border-b pb-8">Discover our collection for Men's</h2>
+          <h2 className="text-gray-700 text-2xl sm:text-3xl font-medium border-b pb-8">Discover our collection for Men&apos;s</h2>
 
           <CategoriesSlide categories={men} />
         </section>

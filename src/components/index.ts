@@ -76,7 +76,6 @@ export * from './tremor/Badge';
 export * from './tremor/Button';
 export * from './tremor/Card';
 export * from './tremor/Chart';
-export * from './tremor/DatePicker';
 export * from './tremor/Table';
 export * from './tremor/SelectForm';
 export * from './tremor/Popover';

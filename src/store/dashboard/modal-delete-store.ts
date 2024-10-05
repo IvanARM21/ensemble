@@ -29,7 +29,7 @@ const initialModalDelete = {
 const useModalDeleteStore = create<ModalDeleteStore>((set) => ({
   ...initialModalDelete,
 
-  callback: (id) => null,
+  callback: () => null,
   closeModal: () => set({ modalState: false, callback: () => null }),
   showModal: (id, title, message, callback) => set({ modalState: true, id, callback, message, title }),
 

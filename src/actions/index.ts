@@ -1,4 +1,3 @@
-import { getCategoryWithProducts } from './categories/get-category-with-products-action';
 
 // Auth
 export { authenticateUser } from './auth/authenticate-action';
@@ -25,13 +24,14 @@ export * from './colors/get-color-by-id-action';
 export * from './colors/update-color-action';
 
 // Images 
-export { deleteImages } from './images/images-action';
+export { deleteImages, uploadAndGetUrl, compressedImage } from './images/images-action';
 
 // Products
 export { createProduct } from './products/create-product-action';
 export { getAllProductAndNumVar } from './products/get-products-all-and-num-var-action';
 export { getProductById } from './products/get-product-by-id';
 export { deleteProduct } from './products/delete-product-action';
+export { getProductsByGender } from './products/get-products-by-gender-action';
 
 // Profile
 export { getUser } from './profile/get-user-action';

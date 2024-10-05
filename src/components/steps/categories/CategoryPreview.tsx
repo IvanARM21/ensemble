@@ -1,10 +1,10 @@
-import Image from "next/image";
+
 import clsx from "clsx";
 import { useCategoryStore } from "@/store"
 import { StepHeader } from "../StepHeader"
 import { ImageSource } from "@/components";
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { convertToBase64Str } from "@/utils";
 
 export const CategoryPreview = () => {

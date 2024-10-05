@@ -6,7 +6,7 @@ export const getLastSixMonthsData = (data: {
     const currentMonthIndex = new Date().getMonth();
 
     // Calculate the start index for the last 6 months
-    let startIndex = currentMonthIndex - 5;
+    const startIndex = currentMonthIndex - 5;
 
     // If the month is different year
     if (startIndex < 0) {
@@ -33,7 +33,6 @@ export const getStartYear = () => {
     const currentYear = getCurrentYear();
     const startMonth = getCurrentMonth()-5;
 
-    console.log(startMonth);
     return startMonth < 0 ? currentYear-1 : false;
 }
 

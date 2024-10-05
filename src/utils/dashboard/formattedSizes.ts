@@ -1,4 +1,4 @@
-import { CreateVariant, Size, SizeContext, SizeWithStock } from "@/interfaces";
+import { Size, SizeWithStock } from "@/interfaces";
 
 interface Result {
     [key: string]: Size[]; // Agrupa los tamaños por tipo como un array

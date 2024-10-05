@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { useProductStore } from "@/store"
 import { useProducts } from "@/hooks";
 import { Category, Color, ContextType, Step } from "@/interfaces";
@@ -17,7 +18,7 @@ interface Props {
 export const ProductsProcess = ({colorsDB, categoriesDB} : Props) => {
 
 
-  const {} = useProducts({ colorsDB, categoriesDB });
+  useProducts({ colorsDB, categoriesDB });
   const { currentStep, steps, alert, product, setStep } = useProductStore();
 
   return (

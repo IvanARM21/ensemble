@@ -22,7 +22,7 @@ export const PhoneForm = ({title, defaultValues, user, setUser} : Props) => {
   });
   const hiddenModalProfile = useModalStore(state => state.hiddenModalProfile);
   const [alert, setAlert] = useState(INITIAL_ALERT);
-  const [isPending, transitionStart] = useTransition();
+  const [, transitionStart] = useTransition();
 
   const onSubmit = (data: ChangePhone) => {
     transitionStart(async () => {

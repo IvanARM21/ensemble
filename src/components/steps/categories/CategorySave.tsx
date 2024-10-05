@@ -29,8 +29,8 @@ export const CategorySave = () => {
     if(category.id) formData.append("id", category.id);
     formData.append("label", category.label);
     formData.append("slug", category.slug);
-    formData.append("gender", category.gender);
-    formData.append("type", category.type);
+    formData.append("gender", category.gender ?? "");
+    formData.append("type", category.type ?? "");
     formData.append("image", category.image ?? "");
 
     console.log(formData.get("image"));

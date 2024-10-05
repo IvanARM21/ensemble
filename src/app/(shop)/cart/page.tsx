@@ -1,8 +1,7 @@
 
-import { Title } from '@/components';
 import Link from 'next/link';
 import { CartGrid, SummaryOrder } from '@/components';
-import { ArrowLeft } from '@/icons';
+import { ArrowLeftIcon } from '@heroicons/react/24/outline';
 
 export default function CartPage() {
 
@@ -16,7 +15,7 @@ export default function CartPage() {
         href="/collections"
         className="text-lg text-blue-600 flex items-center gap-1 text-center lg:text-left mt-10"
       >
-        <span className="size-5"><ArrowLeft /></span>
+        <span className="size-5"><ArrowLeftIcon /></span>
         Continue Shopping
       </Link>
 

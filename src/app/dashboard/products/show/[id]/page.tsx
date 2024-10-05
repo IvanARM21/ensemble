@@ -1,10 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
 import { redirect } from "next/navigation";
-import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { getProductById } from "@/actions";
 import { DashboardPageHeader, ImageSource, ModalAddVariantSuspense } from "@/components";
-import { currencyFormat, formattedSizes, formattedSizesWithStock } from "@/utils";
+import { currencyFormat, formattedSizesWithStock } from "@/utils";
 import { gendersObj } from "@/constants";
 import { OptionsVariant } from "../ui/OptionsVariant";
 import { ExpandablesSizes } from "../ui/ExpandablesSizes";
@@ -17,7 +16,7 @@ interface Props {
 
 export default async function ShowByIdPage({params} : Props) {
 
-  const { error, product, message } = await getProductById(params.id);
+  const { product } = await getProductById(params.id);
   
   if(!product) redirect("/dashboard/products");
 
@@ -138,7 +137,7 @@ export default async function ShowByIdPage({params} : Props) {
                   <div className="flex gap-2">
                     <div className="h-24 w-16">
                       <Image 
-                        src={variant.images[0].url ?? null}
+                        src={variant.images[0]?.url ?? ""}
                         alt={`Image variant ${variant.name}`}
                         width={100}
                         height={100}

@@ -11,8 +11,15 @@ const INITIAL_STEPS : Step<ProductContext>[] = [
             alert: INITIAL_ALERT,
             product: INITIAL_PRODUCT
         },
-        condition: ({product, alert}) => {
-            const { materials, tags, variants, id, ...required } = product;
+        condition: ({product}) => {
+            const required = {
+                categoryId: product.categoryId,
+                description: product.description,
+                gender: product.gender,
+                name: product.name,
+                price: product.price,
+                slug: product.slug
+            }
             if(!Object.values(required).includes("")) {
                 return true;
             }

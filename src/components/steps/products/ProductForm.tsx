@@ -1,12 +1,11 @@
-import { useEffect, useMemo, useRef } from 'react';
+import React, { useMemo, useRef } from 'react';
 import { InformationCircleIcon } from '@heroicons/react/24/solid';
 import { Gender } from '@/interfaces';
-import { createSlug, currencyFormat, formattCategoriesForGender } from '@/utils';
+import { createSlug, formattCategoriesForGender } from '@/utils';
 import { genders } from '@/constants';
 import { useProductStore } from '@/store'
 import { Select, SelectValue, SelectTrigger, SelectContent, Tooltip, SelectItem, ImageSource } from '@/components';
 import { StepHeader } from '../StepHeader'
-import { userAgent } from 'next/server';
 
 export const ProductForm = () => {
 
@@ -127,7 +126,7 @@ export const ProductForm = () => {
                                                 <>
                                                     <ImageSource 
                                                         alt={`Image category ${category.label}`}
-                                                        src={category.image ?? ""}
+                                                        src={category.image as string}
                                                         height={56}
                                                         width={48}
                                                         quality={100}

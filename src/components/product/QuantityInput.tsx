@@ -1,7 +1,7 @@
 "use client";
 
-import { MinusIcon, PlusIcon } from "@/icons";
 import { ProductCart } from "@/interfaces";
+import { MinusIcon, PlusIcon } from "lucide-react";
 
 interface Props {
     productCart: ProductCart;
@@ -29,7 +29,7 @@ export const QuantityInput = ({productCart, setProductCart, sizesQuantity} : Pro
                 value={productCart.quantity}
                 id="quantity"
                 onInput={(e) => {
-                    let value = +e.currentTarget.value;
+                    const value = +e.currentTarget.value;
                     if(value > 15 || value >= sizesQuantity) return;
                     setProductCart({...productCart, quantity: value});
                 }}

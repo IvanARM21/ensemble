@@ -1,12 +1,11 @@
 "use client";
 
-import Image from "next/image"
+import Link from "next/link";
 import { useCartStore } from "@/store";
 import { ProductCart } from "@/interfaces"
-import { MinusIcon, PlusIcon, Trash } from "@/icons"
-import { calculateDiscount, currencyFormat, handleClickDecrease, handleChangeQuantity, handleClickIncrease } from "@/utils"
-import Link from "next/link";
+import { currencyFormat, handleClickDecrease, handleChangeQuantity, handleClickIncrease } from "@/utils"
 import { ImageSource } from "../image/ImageSource";
+import { MinusIcon, PlusIcon, TrashIcon } from "@heroicons/react/24/outline";
 
 interface Props {
     item: ProductCart
@@ -49,7 +48,7 @@ export const CartItem = ({item, hiddenCart} : Props) => {
                     aria-label={`Delete Product ${item.name}`}
                     onClick={() => removeProduct(item.productId, item.variantId, item.size)}
                 >
-                    <Trash />
+                    <TrashIcon />
                 </button>
                 <div className="flex items-center gap-3 text-gray-500">
                     <button

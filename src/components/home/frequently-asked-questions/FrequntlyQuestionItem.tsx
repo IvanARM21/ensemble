@@ -1,8 +1,8 @@
 "use client";
 
-import { MinusIcon, PlusIcon } from "@/icons"
-import { FrequentlyQuestions } from "@/interfaces";
 import { useState } from "react"
+import { MinusIcon, PlusIcon } from "@heroicons/react/24/outline";
+import { FrequentlyQuestions } from "@/interfaces";
 
 interface Props {
     item: FrequentlyQuestions;
@@ -26,13 +26,13 @@ export const FrequntlyQuestionItem = ({item} : Props) => {
                     type="button"
                     className="text-gray-700"
                     aria-label="Hidden answer"
-                ><MinusIcon /></button>
+                ><MinusIcon className="size-6" /></button>
             ) : (
                 <button 
                     type="button"
                     className="text-gray-700"
                     aria-label="See answer"
-                ><PlusIcon /></button>
+                ><PlusIcon className="size-6" /></button>
             )}
         </div>
 

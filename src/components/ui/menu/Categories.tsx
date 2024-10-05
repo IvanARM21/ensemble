@@ -1,6 +1,4 @@
-import Link from "next/link";
-import { Brand, Category } from "@/interfaces";
-import { useMenuStore } from "@/store";
+import { Category } from "@/interfaces";
 import { CategoryItem } from "./CategoryItem";
 
 interface Props {

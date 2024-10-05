@@ -2,11 +2,11 @@
 import Image from "next/image"
 import Link from "next/link"
 import { MenuButton } from "../menu-mobile/MenuButton";
-import { SearchIcon } from "@/icons";
 import { ShoppingButton } from "./ShoppingButton";
 import { AuthButtons } from "./AuthButtons";
 import { Session } from "next-auth";
 import { GenderLinks } from "./GenderLinks";
+import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 
 interface Props {
     session: Session | null
@@ -48,7 +48,7 @@ export const Header = ({session} : Props) => {
                     aria-label="Search"
                     className="h-7 w-7 text-gray-400"
                 >
-                    <SearchIcon />
+                    <MagnifyingGlassIcon />
                 </button>
                 <ShoppingButton />
             </nav>

@@ -10,7 +10,6 @@ import 'swiper/css/navigation';
 // import required modules
 import { Keyboard, Pagination, Navigation } from 'swiper/modules';
 import { ImageClick } from "../ui/image/ImageClick";
-import { ImageSource } from '../ui/image/ImageSource';
 
 // Import required modules
 
@@ -23,11 +22,7 @@ interface Props {
 
 export const ImageModal = ({ imagesUrl, name, setModal, initialSlide}: Props) => {
     return (
-        <div className="fixed inset-0 z-30 fade-in flex justify-center items-center bg-white" onClick={(e) => {
-            if(e.target === e.currentTarget) {
-                setModal(false);
-            }
-        }}>
+        <div className="fixed inset-0 z-30 fade-in flex justify-center items-center bg-white">
             <Swiper
                 initialSlide={initialSlide}
                 slidesPerView={1}
@@ -42,25 +37,26 @@ export const ImageModal = ({ imagesUrl, name, setModal, initialSlide}: Props) =>
                 navigation={true}
                 modules={[Keyboard, Pagination, Navigation]}
                 className= "mySwiper w-full h-full"
-                onClick={() => setModal(false)}
+                // onClick={() => setModal(false)}
             >
                 {imagesUrl.map(url => (
                     <SwiperSlide 
                         key={url} 
-                        >
-                        <ImageSource
+                        onClick={() => setModal(false)}
+                    >
+                        <ImageClick
                             src={url}
+                            onClick={() => setModal(true)}
                             width={1000}
                             height={1000}
                             alt={`Image of variant ${name}`}
                             sizes="(min-width: 1024px) 100vh, 100vw"
-                            quality={100}
-                            className="rounded-lg w-auto mx-auto h-full object-contain"
+                            quality={90}
+                            className="rounded-lg w-auto mx-auto h-full object-contain z-20"
                         />
                     </SwiperSlide>
                 ))}
             </Swiper>
-           
         </div>
     );
 };

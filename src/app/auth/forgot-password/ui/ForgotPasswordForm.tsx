@@ -10,7 +10,7 @@ export const ForgotPasswordForm = () => {
 
   const [alert, setAlert] = useState({message: "", error: true});
   const { handleSubmit, register, formState: { errors } } = useForm<ForgotPassword>();
-  const [isPending, startTransition] = useTransition();
+  const [isPending] = useTransition();
 
   const onSubmit = async (data: ForgotPassword) => {
     const response = await forgotPassword(data);

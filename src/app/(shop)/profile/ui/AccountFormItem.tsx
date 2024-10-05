@@ -12,7 +12,7 @@ interface Props {
     user: Omit<User, "password">
 }
 
-export const AccountFormItem = ({value, label, callback, id, type = "text", isEditable = true, user} : Props) => {
+export const AccountFormItem = ({value, label, id, type = "text" } : Props) => {
 
 
   return (

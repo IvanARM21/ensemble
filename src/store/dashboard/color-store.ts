@@ -10,7 +10,7 @@ const INITIAL_STEPS: Step<ColorContext>[] = [
             color: INITIAL_COLOR,
             alert: INITIAL_ALERT
         },
-        condition: ({}) => true,
+        condition: () => true,
     },
     {
         numStep: 2,

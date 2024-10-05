@@ -1,10 +1,6 @@
 import Link from 'next/link';
 import React from 'react'
 
-interface Item {
-    
-}
-
 interface Props {
     title: string;
     links: { label: string; url: string; }[]

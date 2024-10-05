@@ -1,5 +1,5 @@
 import { Product, Variant } from "@/interfaces"
-import { calculateDiscount, currencyFormat } from "@/utils"
+import {  currencyFormat } from "@/utils"
 import { FavoriteBtn } from "../ui/favorite-btn/FavoriteBtn"
 
 interface Props {

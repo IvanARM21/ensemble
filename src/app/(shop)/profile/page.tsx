@@ -16,7 +16,7 @@ export default async function ProfilePage({ searchParams }: Props) {
   if(!session)  redirect("/auth/login");
 
   // Search the user by id
-  const { user, hasPass } = await getUser(session.user.id);
+  const { user } = await getUser(session.user.id);
   if(!user) redirect("/auth/login");
 
   return (
@@ -26,7 +26,7 @@ export default async function ProfilePage({ searchParams }: Props) {
           <Client
             userServer={user}
             params={searchParams}
-            hasPass={hasPass}
+            // hasPass={hasPass}
           />
         </>
       )}

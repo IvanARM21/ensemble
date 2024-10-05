@@ -1,5 +1,5 @@
 
-import { Instagram, Facebook } from '@/icons'
+// import { Instagram, Facebook } from '@/icons'
 import { FooterGrid } from './FooterGrid'
 
 export const Footer = () => {
@@ -24,15 +24,19 @@ export const Footer = () => {
                     <a 
                         href="https://facebook.com"
                         target="_blank"
+                        className="text-gray-600 font-medium text-sm"
                     >
-                        <Facebook className="size-8 cursor-pointer transition-all duration-300 text-gray-600 hover:scale-125"/>
+                        {/* <Facebook className="size-8 cursor-pointer transition-all duration-300 text-gray-600 hover:scale-125"/> */}
+                        Facebook
                     </a>
                     <a 
                         href="https://facebook.com"
                         target="_blank"
-                        aria-label="Link to Ensemble Instagram"
+                        // aria-label="Link to Ensemble Instagram"
+                        className="text-gray-600 font-medium text-sm"
                     >
-                        <Instagram  className="size-8 cursor-pointer transition-all duration-300 text-gray-600 hover:scale-125" />
+                        {/* <Instagram  className="size-8 cursor-pointer transition-all duration-300 text-gray-600 hover:scale-125" /> */}
+                        Instagram
                     </a>
                 </div>
             </div>

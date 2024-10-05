@@ -41,7 +41,11 @@ export  const CategoriesSlide = ({categories} : Props) => {
                     slidesPerView: 3,
                     spaceBetween: 8
                 },
-                360: {
+                380: {
+                    slidesPerView: 2,
+                    spaceBetween: 8
+                },
+                300: {
                     slidesPerView: 1.5,
                     spaceBetween: 8
                 }

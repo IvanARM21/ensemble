@@ -1,3 +1,5 @@
+
+import React from "react"
 import { useState } from "react"
 import { StepHeader } from "../StepHeader"
 import { useProductStore } from "@/store"
@@ -30,7 +32,7 @@ export const MaterialsAndTags = () => {
                 placeholder="Write a new material"
             />
             <p className=" text-gray-500 text-sm">
-              Examples to create a material: 'Cotton', 'Polyster', 'Spandex'.
+              Examples to create a material: &apos;Cotton&apos;, &apos;Polyster&apos;, &apos;Spandex&apos;.
             </p>
 
             <MaterialOrTag 
@@ -41,7 +43,7 @@ export const MaterialsAndTags = () => {
                 placeholder="Write a new tag"
             />
             <p className=" text-gray-500 text-sm">
-              Examples to create a tag: 'Basic T-shirt', 'Casual Style', 'Cotton T-shirt'.
+              Examples to create a tag: &apos;Basic T-shirt&apos;, &apos;Casual Style&apos;, &apos;Cotton T-shirt&apos;.
             </p>
            
         </div>

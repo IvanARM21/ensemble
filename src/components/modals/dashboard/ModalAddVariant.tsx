@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense } from "react";
+import React, { Suspense } from "react";
 import clsx from "clsx";
 import {  XCircleIcon } from "@heroicons/react/24/outline";
 import { useVariantStore } from "@/store";

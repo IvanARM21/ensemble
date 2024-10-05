@@ -1,6 +1,6 @@
 "use client";
 
-import { Dispatch, SetStateAction, useState, useTransition } from "react";
+import { useState, useTransition } from "react";
 import { useForm } from "react-hook-form";
 import { ChangePassword, User } from "@/interfaces";
 import { useModalStore } from "@/store";
@@ -18,7 +18,7 @@ export const ChangePasswordForm = ({user} : Props) => {
   const { register, handleSubmit, formState: { errors }, watch } = useForm<ChangePassword>();
   const hiddenModalProfile = useModalStore(state => state.hiddenModalProfile);
   const [alert, setAlert] = useState(INITIAL_ALERT);
-  const [isPending, transitionStart] = useTransition();
+  const [, transitionStart] = useTransition();
 
   const onSubmit = (data: ChangePassword) => {
     transitionStart(async () => {

@@ -36,7 +36,7 @@ export const createVariant = async (formData : FormData, variant : CreateVariant
                     if (file) {
                         const arrayBuffer = await file.arrayBuffer();
                         const buffer = Buffer.from(arrayBuffer);
-                        const compressedBuffer = await compressedImage(buffer, 1000, 100);
+                        const compressedBuffer = await compressedImage(buffer, 900, 100);
                         const imageSaved = await uploadAndGetUrl(compressedBuffer);
                         return imageSaved;
                     }

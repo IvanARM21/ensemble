@@ -15,9 +15,10 @@ export const ReviewItem = ({testimonial} : Props) => {
             className="size-20 rounded-full object-cover"
             src={testimonial.image}
             alt="" 
-            width={120}
-            height={120}
-            quality={90}
+            width={80}
+            height={80}
+            sizes="80px"
+            quality={60}
         />
         <div className="flex flex-col">
             <h3 className="text-gray-700">- {testimonial.author}</h3>

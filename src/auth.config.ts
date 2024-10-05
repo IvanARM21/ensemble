@@ -1,11 +1,12 @@
-import Credentials from "next-auth/providers/credentials";
-import { User as NextAuthUser } from "next-auth";
-import Google from "next-auth/providers/google";
-import prisma from "@/lib/prisma";
+
 import bcrypt from 'bcryptjs';
-import { type NextAuthConfig } from "next-auth";
-import { type Role } from "@/interfaces";
+import { User as NextAuthUser, type NextAuthConfig } from "next-auth";
+import prisma from "@/lib/prisma";
+import Google from "next-auth/providers/google";
+import Credentials from "next-auth/providers/credentials";
 import { nanoid } from "nanoid";
+
+import { type Role } from "@/interfaces";
 import { sendEmailVerification } from "./utils";
 import { EXPIRE } from "./constants";
 

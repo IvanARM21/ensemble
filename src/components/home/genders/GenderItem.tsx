@@ -20,6 +20,8 @@ export const GenderItem = ({url, image, label} : Props) => {
             alt="" 
             width={400} 
             height={600}
+            quality={65}
+            sizes="(min-width: 1024px) 33vw,(min-width: 1580px) 500px, 80vw"
             className="object-cover h-[370px] md:h-[400px] w-full z-10"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-black/30" />

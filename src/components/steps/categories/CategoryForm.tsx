@@ -1,9 +1,9 @@
-import { useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import clsx from 'clsx';
 import { InformationCircleIcon } from '@heroicons/react/20/solid';
 import { PhotoIcon } from '@heroicons/react/24/outline';
 import { useCategoryStore } from '@/store'
-import { convertToBase64Str, createSlug } from '@/utils';
+import { createSlug } from '@/utils';
 import { types, genders } from '@/constants';
 import { Alert, Select, SelectValue, Tooltip, SelectTrigger, SelectContent, SelectItem, ImageSource } from '@/components';
 import { CategoryType, Gender } from '@/interfaces';
@@ -93,7 +93,7 @@ export const CategoryForm = () => {
 
                 <div className="flex flex-col gap-2 lg:col-span-7">
                     <label htmlFor="category-type" className="text-gray-800 leading-6 font-medium">Category Type</label>
-                    <Select onValueChange={(value) => setCategory({...category, type: value as CategoryType})} value={category.type}>
+                    <Select onValueChange={(value) => setCategory({...category, type: value as CategoryType})} value={category.type ?? ""}>
                         <SelectTrigger  id="category-gender" className=" bg-gray-50 py-2 px-2 rounded-xl border-none capitalize ">
                             <SelectValue placeholder="Select gender" />
                         </SelectTrigger>

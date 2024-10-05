@@ -1,6 +1,5 @@
 
 import Link from "next/link";
-import Image from "next/image"
 import { calculateDiscount, currencyFormat } from "@/utils";
 import { ProductCart } from "@/interfaces";
 import { ImageSource } from "../ui/image/ImageSource";

@@ -54,7 +54,7 @@ export default async function CategoriesDashboardPage() {
                           width={56}
                           height={56}
                           alt={`Category image ${category.label}`}
-                          src={category.image}
+                          src={category.image as string}
                           sizes="(min-width: 768px) 64px, 56px"
                           quality={90}
                           className="w-full h-full object-cover rounded-xl shadow-md"

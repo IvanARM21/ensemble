@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Jost } from 'next/font/google'
 import "./globals.css";
 
-const jost = Jost({ weight: ["400", "500", "600", "700", "900"], subsets: ["latin"]});
+const jost = Jost({ weight: ["400", "500", "600", "700", "900"], subsets: ["latin"], display: "swap"});
 
 export const metadata: Metadata = {
   title: "Create Next App",

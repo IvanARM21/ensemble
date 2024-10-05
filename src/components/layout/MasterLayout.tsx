@@ -1,3 +1,4 @@
+import React from "react";
 import { auth } from "@/auth";
 import { ToastContainer } from "react-toastify";
 import { Footer, Header, Hero, SidebarCart, MenuMobile } from "@/components";

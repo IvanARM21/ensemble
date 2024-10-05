@@ -1,10 +1,10 @@
 "use client";
 
-import { confirmAccount } from "@/actions";
-import { Alert } from "@/components";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { confirmAccount } from "@/actions";
+import { Alert } from "@/components";
 
 export const ConfirmState = () => {
 

@@ -1,22 +1,21 @@
 "use client";
 
-import { type Dispatch, type SetStateAction, useEffect, useState } from "react";
+import React, { type Dispatch, type SetStateAction, useEffect, useState } from "react";
 import clsx from "clsx";
 import { User } from "@/interfaces";
-import { XCircle } from "@/icons";
 import { useModalStore } from "@/store";
 import { NameForm } from "./form/NameForm";
 import { EmailForm } from "./form/EmailForm";
 import { PhoneForm } from "./form/PhoneForm";
 import { ChangePasswordForm } from "./form/ChangePasswordForm";
+import { XCircleIcon } from "@heroicons/react/24/outline";
 
 interface Props {
     user: Omit<User, 'password'>
     setUser: Dispatch<SetStateAction<Omit<User, "password">>>;
-    setHasPass: Dispatch<SetStateAction<boolean>>
 }
 
-export const ModalProfile = ({user, setUser, setHasPass} : Props) => {
+export const ModalProfile = ({user, setUser} : Props) => {
 
   const { profileField, hiddenModalProfile, modalProfileState, profileAction } = useModalStore();
   const [modal, setModal] = useState(false);
@@ -69,7 +68,7 @@ export const ModalProfile = ({user, setUser, setHasPass} : Props) => {
                         className="top-2 right-2 sm:top-3 sm:right-3 absolute text-red-600"
                         onClick={hiddenModalProfile}
                     >
-                        <XCircle />
+                        <XCircleIcon />
                     </button>
 
                     {renderForm()}

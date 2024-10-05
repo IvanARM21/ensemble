@@ -9,7 +9,7 @@ import { StepHeader } from "../StepHeader";
 export const ProductSave = () => {
 
   const router = useRouter();  
-  const { reset, product, type } = useProductStore();
+  const { reset, product } = useProductStore();
   const [loading, setLoading] = useState(false);
   const [alert, setAlert] = useState(INITIAL_ALERT);
   const [hasMounted, setHasMounted] = useState(false);

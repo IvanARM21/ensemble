@@ -1,8 +1,9 @@
 import Image from 'next/image'
 import { currencyFormat, handleChangeQuantity, handleClickDecrease, handleClickIncrease } from '@/utils'
-import { MinusIcon, PlusIcon, Trash } from '@/icons'
 import { ProductCart } from '@/interfaces'
 import { useCartStore } from '@/store';
+import { MinusIcon, PlusIcon } from '@heroicons/react/24/outline';
+import { TrashIcon } from 'lucide-react';
 
 interface Props {
     item: ProductCart;
@@ -59,7 +60,7 @@ export const CartItemPage = ({item} : Props) => {
                         className="size-4 sm:size-7 text-gray-500 hover:text-red-600 transition-colors duration-300"
                         onClick={() => removeProduct(item.productId, item.variantId, item.size)}
                     >
-                        <Trash />
+                        <TrashIcon />
                     </button>
                 </div>
                 <p className="text-lg sm:text-2xl text-zinc-800 font-black"><span>{currencyFormat(item.price*item.quantity) }</span></p>
